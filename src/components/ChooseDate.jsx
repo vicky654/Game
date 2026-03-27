@@ -1,0 +1,109 @@
+import React, { useState } from 'react'
+
+const OPTIONS = [
+  {
+    emoji: '🍿',
+    label: 'Netflix Night',
+    desc: 'Cozy up, snacks & a good show',
+    color: 'from-red-400 to-rose-500',
+    confirmMsg: "Perfect! Couch, snacks, and you = best night ever! 🍿❤️",
+  },
+  {
+    emoji: '🚗',
+    label: 'Long Drive',
+    desc: 'Music, windows down, just us',
+    color: 'from-blue-400 to-purple-400',
+    confirmMsg: "YESSS! Singing our songs on the open road! 🚗🎶💕",
+  },
+  {
+    emoji: '🍝',
+    label: 'Dinner Date',
+    desc: 'Fancy dinner, candlelight vibes',
+    color: 'from-orange-400 to-rose-400',
+    confirmMsg: "Fancy dinner with the fanciest person I know! 🍝✨",
+  },
+]
+
+export default function ChooseDate() {
+  const [selected, setSelected] = useState(null)
+  const [confirmed, setConfirmed] = useState(false)
+
+  const handleSelect = (opt) => {
+    setSelected(opt)
+  }
+
+  const handleConfirm = () => {
+    setConfirmed(true)
+  }
+
+  if (confirmed) {
+    return (
+      <div className="min-h-screen flex items-center justify-center px-4">
+        <div className="glass rounded-3xl p-8 max-w-sm mx-auto text-center shadow-2xl animate-bounceIn">
+          <div className="text-7xl mb-4 animate-heartbeat">{selected.emoji}</div>
+          <h2 className="text-2xl font-black text-pink-700 mb-2">Date Booked! 🎉</h2>
+          <p className="text-rose-600 font-bold text-lg mb-3">{selected.confirmMsg}</p>
+          <div className="bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-4 mb-5 border border-pink-200">
+            <p className="text-pink-700 font-black text-lg">
+              Done! Date booked with <span className="text-rose-600">me</span> only 😎❤️
+            </p>
+          </div>
+          <button
+            onClick={() => { setSelected(null); setConfirmed(false) }}
+            className="glass text-pink-700 font-bold px-6 py-2.5 rounded-2xl hover:bg-white/50 active:scale-95 transition-all"
+          >
+            Plan Another Date 💕
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4 py-8">
+      <div className="w-full max-w-sm mx-auto">
+        <div className="text-center mb-6">
+          <div className="text-6xl mb-3 animate-floatUp">📅</div>
+          <h2 className="text-2xl font-black text-white drop-shadow mb-1">Choose Our Date</h2>
+          <p className="text-pink-100 text-sm font-medium">What shall we do together? 💕</p>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {OPTIONS.map((opt) => (
+            <button
+              key={opt.label}
+              onClick={() => handleSelect(opt)}
+              className={`glass rounded-2xl p-5 text-left transition-all duration-200 hover:scale-102 active:scale-98 shadow-lg ${
+                selected?.label === opt.label
+                  ? 'ring-4 ring-white/80 scale-102 bg-white/40'
+                  : 'hover:bg-white/40'
+              }`}
+            >
+              <div className="flex items-center gap-4">
+                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${opt.color} flex items-center justify-center text-3xl shadow-md flex-shrink-0`}>
+                  {opt.emoji}
+                </div>
+                <div className="flex-1">
+                  <div className="text-white font-black text-lg">{opt.label}</div>
+                  <div className="text-pink-100 text-sm font-medium">{opt.desc}</div>
+                </div>
+                {selected?.label === opt.label && (
+                  <div className="text-2xl animate-bounceIn">✅</div>
+                )}
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {selected && (
+          <button
+            onClick={handleConfirm}
+            className="w-full mt-5 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-black text-xl py-4 rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all animate-slideDown"
+          >
+            Book It! {selected.emoji}💕
+          </button>
+        )}
+      </div>
+    </div>
+  )
+}

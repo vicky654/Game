@@ -1,6 +1,8 @@
 // ─── Analytics & Notification API utility ────────────────────────────────────
 // All calls are fire-and-forget — errors never break the game UI.
 
+import { API } from '../config/api'
+
 const SESSION_KEY = 'lg_session_id'
 
 // Generate or retrieve a stable session ID for this browser tab
@@ -20,7 +22,7 @@ export function getSessionId() {
  */
 export const trackEvent = async (eventName, meta = {}) => {
   try {
-    await fetch('/api/track', {
+    await fetch(`${API}/api/track`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -42,7 +44,7 @@ export const trackEvent = async (eventName, meta = {}) => {
  */
 export const sendAlert = async (type, message) => {
   try {
-    await fetch('/api/notify', {
+    await fetch(`${API}/api/notify`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ type, message }),

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { trackEvent } from '../utils/api'
+import { API } from '../config/api'
 import { GIRL_NAME, AI_COMMENTARY } from '../config/global'
 
 // ─── Magic AI activity commentary ─────────────────────────────────────────────
@@ -109,8 +110,8 @@ export default function Dashboard() {
   useEffect(() => {
     trackEvent('DASHBOARD_OPENED')
     Promise.all([
-      fetch('/api/stats').then(r => r.json()),
-      fetch('/api/events/recent').then(r => r.json()),
+      fetch(`${API}/api/stats`).then(r => r.json()),
+      fetch(`${API}/api/events/recent`).then(r => r.json()),
     ])
       .then(([s, e]) => {
         setStats(s)

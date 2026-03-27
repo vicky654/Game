@@ -69,14 +69,14 @@ export default function CatchTheHeart() {
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="glass rounded-3xl p-8 max-w-sm mx-auto text-center shadow-2xl">
           <div className="text-7xl mb-4 animate-floatUp">❤️</div>
-          <h2 className="text-2xl font-black text-pink-700 mb-2">Catch My Heart!</h2>
-          <p className="text-pink-600 mb-2 font-medium">Hearts will fall from the sky 💕</p>
-          <p className="text-pink-500 text-sm mb-6">Tap them before they disappear! ⏱️ {GAME_DURATION}s</p>
+          <h2 className="text-2xl font-black text-pink-700 mb-2">catch the hearts 💕</h2>
+          <p className="text-pink-600 mb-2 font-medium">they fall fast. I didn't make it easy 😏</p>
+          <p className="text-pink-500 text-sm mb-6">tap them before they're gone 😌 {GAME_DURATION}s</p>
           <button
             onClick={() => setStarted(true)}
             className="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-black text-xl py-4 rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all"
           >
-            Start Catching! ❤️
+            I'm ready 😏
           </button>
         </div>
       </div>
@@ -88,14 +88,14 @@ export default function CatchTheHeart() {
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="glass rounded-3xl p-8 max-w-sm mx-auto text-center shadow-2xl animate-bounceIn">
           <div className="text-6xl mb-4 animate-heartbeat">❤️</div>
-          <h2 className="text-2xl font-black text-pink-700 mb-2">Time's Up!</h2>
+          <h2 className="text-2xl font-black text-pink-700 mb-2">time's up 😏</h2>
           <p className="text-4xl font-black text-rose-500 mb-1">💕 {score}</p>
-          <p className="text-pink-600 font-bold mb-3">hearts caught!</p>
+          <p className="text-pink-600 font-bold mb-3">hearts caught</p>
           <p className="text-rose-500 font-bold text-lg mb-5">
-            "You caught my heart too ❤️"
+            honestly? better than I expected 😌
           </p>
           <p className="text-pink-400 text-sm mb-5">
-            {score > 15 ? 'Amazing! You\'re a pro! 🏆' : score > 8 ? 'Great job! 🌟' : 'Nice try, try again! 💪'}
+            {score > 15 ? "okay I didn't see that coming 👀" : score > 8 ? "not bad at all. I've seen worse 😏" : 'room to improve. I believe in you 😌'}
           </p>
           <button
             onClick={restart}
@@ -151,7 +151,7 @@ export default function CatchTheHeart() {
       {/* Center instruction */}
       <div className="absolute bottom-10 left-0 right-0 text-center pointer-events-none">
         <p className="text-white/60 text-sm font-medium animate-pulse">
-          Tap the hearts! 💕
+          faster 😏 they're getting away
         </p>
       </div>
     </div>

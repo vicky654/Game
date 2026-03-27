@@ -4,29 +4,29 @@ import { useToast, MAGIC } from '../context/ToastContext'
 
 const QUESTIONS = [
   {
-    q: 'Who loves you the most? 🥰',
-    opts: ['Me 😎', 'Me more 😏', 'Only me 😍', 'Me always 💖'],
-    funMsg: 'Obviously ME! Did you even doubt it? 😂💕',
+    q: "real talk — who actually gets your vibe? I have a theory 👀",
+    opts: ['my bestie 😄', 'literally no one 😂', 'some random 🤷', 'this app ngl 😏'],
+    funMsg: "I had a feeling you'd say that 😏",
   },
   {
-    q: 'Who thinks about you 24/7? 🤔',
-    opts: ['Your bestie 😄', 'No one 😢', 'Someone random 🤷', 'ME obviously!! 🙋'],
-    funMsg: "Yes, it's ME! I can't stop! 🥺❤️",
+    q: "important question — what's your go-to snack at 2am? 🌙",
+    opts: ['chips 🍟', 'chocolate 🍫', 'ice cream 🍦', 'all of them tbh 😂'],
+    funMsg: 'solid choice. I approve 😌',
   },
   {
-    q: 'Who would move mountains for you? ⛰️',
-    opts: ['A superhero 🦸', 'Me 💪', 'Also me 💫', 'Still me 😤'],
-    funMsg: 'ME! Every single mountain. No cap. 💪🌄',
+    q: 'vibe check 👀 pick your current energy 💅',
+    opts: ['chill 😌', 'chaotic 😂', 'mysterious 🌙', 'lowkey curious 👀'],
+    funMsg: "yeah… I already knew you'd pick that 😏",
   },
   {
-    q: "What's our love percentage? 💯",
-    opts: ['50% 😐', '75% 🙂', '99.9% 😊', '∞% 💖'],
-    funMsg: "It's INFINITE! Numbers can't measure this 🌌💖",
+    q: "be honest — how's this game so far? 😏",
+    opts: ['okay I guess 😐', 'actually kinda fun 😄', 'lowkey enjoying it 😌', 'not bad at all 👀'],
+    funMsg: 'I designed it to be that way 😏',
   },
   {
-    q: "Who's luckiest to have you? ✨",
-    opts: ['Everyone 😄', 'Your family 👨‍👩‍👧', "Me! I'm so lucky 🍀", 'The whole universe 🌍'],
-    funMsg: 'ME!!! I hit the jackpot with you 🎰💖',
+    q: "rate the vibe honestly — I can take it 🎮",
+    opts: ['mid 😐', 'decent 😄', 'actually good 😏', 'send to a friend? 👀'],
+    funMsg: 'good taste 😌 I wasn\'t worried',
   },
 ]
 
@@ -63,12 +63,12 @@ export default function LoveQuiz() {
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="glass rounded-3xl p-8 max-w-sm mx-auto text-center shadow-2xl animate-bounceIn">
           <div className="text-6xl mb-4 animate-heartbeat">🏆</div>
-          <h2 className="text-2xl font-black text-pink-700 mb-2">Quiz Complete!</h2>
-          <p className="text-xl font-bold text-rose-500 mb-3">You scored 5/5 💯</p>
+          <h2 className="text-2xl font-black text-pink-700 mb-2">not gonna lie… 😏</h2>
+          <p className="text-xl font-bold text-rose-500 mb-3">5/5 — you didn't disappoint 😌</p>
           <p className="text-pink-600 font-medium mb-2">
-            Correct answer is always <span className="font-black text-rose-600">ME ❤️</span>
+            I put a lot of thought into those questions 😏
           </p>
-          <p className="text-pink-500 text-sm">You know me so well, Cutieee Harshu 😘</p>
+          <p className="text-pink-500 text-sm">called it from the start 😄</p>
           <div className="mt-5 flex justify-center gap-2 text-3xl animate-wiggle">
             💖 💕 ❤️
           </div>
@@ -94,7 +94,7 @@ export default function LoveQuiz() {
 
         {/* Question card */}
         <div className="glass rounded-3xl p-6 shadow-2xl">
-          <p className="text-xl font-black text-pink-700 mb-5 text-center leading-snug">
+          <p className="text-lg font-bold text-pink-700 mb-5 text-center leading-snug">
             {question.q}
           </p>
 
@@ -125,7 +125,7 @@ export default function LoveQuiz() {
               onClick={handleNext}
               className="w-full mt-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-black py-3 rounded-2xl hover:from-pink-600 hover:to-rose-600 transition-all active:scale-95 shadow-lg"
             >
-              {step < QUESTIONS.length - 1 ? 'Next Question →' : 'See Results 🎉'}
+              {step < QUESTIONS.length - 1 ? 'Next Question →' : 'See Results 😏'}
             </button>
           )}
         </div>

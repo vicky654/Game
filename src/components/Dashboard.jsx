@@ -76,10 +76,10 @@ function LoveScoreBar({ score, loading }) {
 
 // ─── Fun messages ─────────────────────────────────────────────────────────────
 const FUN_MSGS = [
-  { msg: "You can't resist me 😏", sub: 'Scientific fact' },
-  { msg: "You love me more than games 💖", sub: '100% accurate' },
-  { msg: "I knew you'd check this 👀", sub: 'Totally called it' },
-  { msg: "Every click = proof of love 🥰", sub: 'Tracking confirmed' },
+  { msg: "I tracked all of this. every tap 😏",       sub: 'analytics: confirmed' },
+  { msg: "the numbers say what I already knew 👀",    sub: "data doesn't lie" },
+  { msg: "I knew you'd check this 😌",                sub: 'called it before you opened it' },
+  { msg: "you spent more time here than expected 😄", sub: "I'm not complaining" },
 ]
 
 function formatTime(seconds) {
@@ -131,9 +131,9 @@ export default function Dashboard() {
       {/* Header */}
       <div className="text-center mb-6">
         <div className="text-5xl mb-2 animate-heartbeat">😏</div>
-        <h1 className="text-2xl font-black text-white drop-shadow-lg">Your Love Stats 😏💖</h1>
+        <h1 className="text-2xl font-black text-white drop-shadow-lg">I Ran The Numbers 😏</h1>
         <p className="text-pink-100 text-sm mt-1 font-medium">
-          I know everything 👀 (not really, but almost)
+          turns out I was right about everything 😌
         </p>
       </div>
 
@@ -177,7 +177,7 @@ export default function Dashboard() {
               </div>
               <div className="mt-3 pt-3 border-t border-pink-100/30">
                 <p className="text-pink-200 text-xs italic text-center font-semibold">
-                  "Conclusion: You are mine 😏❤️"
+                  "conclusion: exactly what I predicted 😏"
                 </p>
               </div>
             </div>
@@ -194,7 +194,7 @@ export default function Dashboard() {
               </div>
               <LoveScoreBar score={loveScore} loading={loading} />
               <p className="text-pink-300 text-xs mt-2 text-center italic">
-                "She's basically in love already 💅"
+                "she stayed this long… do the math 😏"
               </p>
             </div>
           </div>
@@ -300,7 +300,7 @@ export default function Dashboard() {
                   <span className="text-white font-black text-sm">Live Activity Feed 🔴</span>
                 </div>
                 <p className="text-pink-200 text-xs mb-3 italic">
-                  "My magical AI is watching… 👀" (it's just a database lol 😂)
+                  "I see everything that happens here 👀" (it's just a database, but still 😏)
                 </p>
                 <div className="space-y-0 max-h-52 overflow-y-auto">
                   {events.slice(0, 10).map(evt => (
@@ -313,7 +313,7 @@ export default function Dashboard() {
 
           {loading && (
             <div className="text-center">
-              <p className="text-pink-200 text-sm animate-pulse">Loading your love data… 💕</p>
+              <p className="text-pink-200 text-sm animate-pulse">pulling up the evidence… 😏</p>
             </div>
           )}
         </>

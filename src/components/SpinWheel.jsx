@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react'
 
 const SEGMENTS = [
-  { label: 'Hug', emoji: '🤗', color: '#ff9a9e', msg: "Aww come here! I'm ready for that hug! 🤗💕" },
-  { label: 'Kiss', emoji: '😘', color: '#fda085', msg: "My favorite! Sending you a virtual one right now 😘❤️" },
-  { label: 'Date', emoji: '🍕', color: '#f6d365', msg: "Pizza date! This weekend, no excuses! 🍕✨" },
-  { label: 'Movie', emoji: '🎬', color: '#a18cd1', msg: "Movie night with you is my happy place! 🎬🍿" },
-  { label: 'Surprise', emoji: '🎁', color: '#fd79a8', msg: "Ooh! Get ready for something special... 🎁💖" },
+  { label: 'Hug', emoji: '🤗', color: '#ff9a9e', msg: "a hug 😌 I'll allow it" },
+  { label: 'Coffee', emoji: '☕', color: '#fda085', msg: "coffee ☕ I already had a spot in mind 😌" },
+  { label: 'Date', emoji: '🍕', color: '#f6d365', msg: "pizza date 🍕 honestly not a bad spin 😏" },
+  { label: 'Movie', emoji: '🎬', color: '#a18cd1', msg: "movie night 🎬 I'll pick the film though 😏" },
+  { label: 'Surprise', emoji: '🎁', color: '#fd79a8', msg: "surprise incoming 🎁 I planned this one specifically 😏" },
 ]
 
 const SEGMENT_ANGLE = 360 / SEGMENTS.length
@@ -47,8 +47,8 @@ export default function SpinWheel() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-6">
       <div className="w-full max-w-sm mx-auto text-center">
-        <h2 className="text-2xl font-black text-white drop-shadow mb-1">🎡 Spin the Wheel</h2>
-        <p className="text-pink-100 text-sm mb-6 font-medium">What will fate decide for us? 💕</p>
+        <h2 className="text-2xl font-black text-white drop-shadow mb-1">🎡 spin the wheel</h2>
+        <p className="text-pink-100 text-sm mb-6 font-medium">I already know what you're hoping for 😏</p>
 
         {/* Wheel container */}
         <div className="relative flex items-center justify-center mb-6">
@@ -116,7 +116,7 @@ export default function SpinWheel() {
               : 'bg-gradient-to-r from-pink-500 to-rose-500 text-white hover:scale-105 active:scale-95 hover:shadow-pink-400/50'
           }`}
         >
-          {spinning ? '✨ Spinning...' : '🎡 Spin!'}
+          {spinning ? '✨ spinning...' : '🎡 spin 😏'}
         </button>
 
         {/* Result */}

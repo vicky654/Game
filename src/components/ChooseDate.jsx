@@ -4,23 +4,23 @@ const OPTIONS = [
   {
     emoji: '🍿',
     label: 'Netflix Night',
-    desc: 'Cozy up, snacks & a good show',
+    desc: 'cozy up, snacks & something good',
     color: 'from-red-400 to-rose-500',
-    confirmMsg: "Perfect! Couch, snacks, and you = best night ever! 🍿❤️",
+    confirmMsg: "solid choice. I already picked the show 🍿😏",
   },
   {
     emoji: '🚗',
     label: 'Long Drive',
-    desc: 'Music, windows down, just us',
+    desc: 'music, windows down, good vibes',
     color: 'from-blue-400 to-purple-400',
-    confirmMsg: "YESSS! Singing our songs on the open road! 🚗🎶💕",
+    confirmMsg: "I knew you'd pick this one 🚗😌",
   },
   {
     emoji: '🍝',
     label: 'Dinner Date',
-    desc: 'Fancy dinner, candlelight vibes',
+    desc: 'good food, candlelight vibes',
     color: 'from-orange-400 to-rose-400',
-    confirmMsg: "Fancy dinner with the fanciest person I know! 🍝✨",
+    confirmMsg: "good taste 🍝 I would've picked this too 😏",
   },
 ]
 
@@ -41,18 +41,18 @@ export default function ChooseDate() {
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="glass rounded-3xl p-8 max-w-sm mx-auto text-center shadow-2xl animate-bounceIn">
           <div className="text-7xl mb-4 animate-heartbeat">{selected.emoji}</div>
-          <h2 className="text-2xl font-black text-pink-700 mb-2">Date Booked! 🎉</h2>
+          <h2 className="text-2xl font-black text-pink-700 mb-2">called it 😏</h2>
           <p className="text-rose-600 font-bold text-lg mb-3">{selected.confirmMsg}</p>
           <div className="bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-4 mb-5 border border-pink-200">
             <p className="text-pink-700 font-black text-lg">
-              Done! Date booked with <span className="text-rose-600">me</span> only 😎❤️
+              I knew from the start 😌
             </p>
           </div>
           <button
             onClick={() => { setSelected(null); setConfirmed(false) }}
             className="glass text-pink-700 font-bold px-6 py-2.5 rounded-2xl hover:bg-white/50 active:scale-95 transition-all"
           >
-            Plan Another Date 💕
+            want to try again? 😏 (you'll pick the same one)
           </button>
         </div>
       </div>
@@ -64,8 +64,8 @@ export default function ChooseDate() {
       <div className="w-full max-w-sm mx-auto">
         <div className="text-center mb-6">
           <div className="text-6xl mb-3 animate-floatUp">📅</div>
-          <h2 className="text-2xl font-black text-white drop-shadow mb-1">Choose Our Date</h2>
-          <p className="text-pink-100 text-sm font-medium">What shall we do together? 💕</p>
+          <h2 className="text-2xl font-black text-white drop-shadow mb-1">I already know what you'll pick 👀</h2>
+          <p className="text-pink-100 text-sm font-medium">go ahead… prove me wrong 😏</p>
         </div>
 
         <div className="flex flex-col gap-4">

@@ -39,10 +39,10 @@ export default function LoadingScreen() {
         <div className="text-8xl mb-5 animate-heartbeat">💕</div>
 
         <h1 className="text-3xl sm:text-4xl font-black text-white drop-shadow-lg mb-1">
-          Loading Love{dots}
+          Loading{dots}
         </h1>
         <p className="text-pink-100 text-base mb-8 font-medium">
-          Preparing something special for you 🌸
+          putting the finishing touches 😏
         </p>
 
         {/* Progress bar */}

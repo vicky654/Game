@@ -32,7 +32,7 @@ export default function ValentineButton() {
     if (moves === 1) {
       addToast(MAGIC.triedNo.message, MAGIC.triedNo)
     } else if (moves === 3) {
-      addToast("You keep trying 😂 Still won't work!", { emoji: '😂' })
+      addToast("still going huh… I appreciate the effort 😄", { emoji: '😂' })
     }
 
     // ── Jealous Mode: triggered after 2+ NO attempts ──────────────────────────
@@ -79,9 +79,9 @@ export default function ValentineButton() {
 
         <div className="glass glow-pulse rounded-3xl p-8 max-w-sm mx-auto shadow-2xl animate-bounceIn text-center">
           <div className="text-7xl mb-4 animate-heartbeat">🥰</div>
-          <h2 className="text-3xl font-black text-pink-700 mb-2">I knew it!</h2>
-          <p className="text-2xl font-black text-rose-500 mb-3">{GIRL_NAME} 😘</p>
-          <p className="text-pink-600 font-medium">You just made me the happiest person ever ❤️</p>
+          <h2 className="text-3xl font-black text-pink-700 mb-2">yeah… I knew it 😏</h2>
+          <p className="text-2xl font-black text-rose-500 mb-3">{GIRL_NAME} 😌</p>
+          <p className="text-pink-600 font-medium">I'd have been shocked if you didn't 😄</p>
           <div className="mt-4 text-3xl animate-wiggle inline-block">💝</div>
         </div>
       </div>
@@ -100,7 +100,7 @@ export default function ValentineButton() {
         <h1 className="text-4xl font-black text-rose-600 mb-2">Valentine? 💕</h1>
         {noMoves > 0 && (
           <p className="text-pink-400 text-sm mb-3 italic">
-            {noMoves < 3 ? 'Hmm… 🤔' : noMoves < 6 ? 'You know the answer! 😏' : 'Just say YES already! 😂💕'}
+            {noMoves < 3 ? 'interesting strategy 😏' : noMoves < 6 ? 'we both know how this ends 😌' : "I respect the persistence. it won't work 😏"}
           </p>
         )}
         <button
@@ -110,7 +110,7 @@ export default function ValentineButton() {
           Yes!! 💚✨
         </button>
         <p className="text-pink-300 text-xs mt-3 font-medium">
-          (There's only one right answer 😉)
+          careful… your choices are being noted 😌
         </p>
       </div>
 

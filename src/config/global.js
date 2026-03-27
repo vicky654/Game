@@ -5,75 +5,77 @@ export const GIRL_NAME = "Cutieee Harshu";
 export const EMAIL_TEMPLATES = {
   YES_CLICKED: (time) => `💖 ${GIRL_NAME} just said YES!
 
-She didn't even hesitate 😏
+She didn't think twice 😏
 Time: ${time}
 
-You're winning ❤️🔥`,
+Called it from the start ❤️🔥`,
 
   FIRST_OPEN: (time) => `👀 She opened your app…
 
-Curious already 😏
+I knew she would 😏
 Time: ${time}`,
 
-  ALL_COMPLETE: (time) => `🏆 She completed EVERYTHING
+  ALL_COMPLETE: (time) => `🏆 She went through everything
 
-This is serious now…
-She’s invested 💖
+I didn't expect that 😏
+She actually played all of it 💖
 Time: ${time}`,
 
-  FINAL_CONFIRMED: (time) => `💍 ${GIRL_NAME} said YES FOREVER!
+  FINAL_CONFIRMED: (time) => `💍 ${GIRL_NAME} confirmed it!
 
-The final confirmation is done…
-She's officially yours 😍💕
+The final screen. She said yes.
+She played it all the way through 😏
 Time: ${time}`,
 
   APP_OPENED: (time) => `💕 ${GIRL_NAME} is back!
 
-She opened the app again…
-Can't stay away 😏
+Back again… as expected 😏
+Can't stay away
 Time: ${time}`,
 };
 
 // ─── Live Presence Messages ────────────────────────────────────────────────────
+// Shown randomly every 10–20 s while app is open.
+// Tone: chill, slightly playful — not intense.
 export const PRESENCE_MESSAGES = [
-  "You're still here… I like that 💖",
-  "You didn't close it… good choice 😏",
-  "Spending time with me huh 😌",
-  "I knew you'd stay 💕",
-  "This isn't just a game anymore… 😏",
-  "You're mine now, ${GIRL_NAME} 💍",
-  "Every second counts ❤️",
-  "I see you smiling 😘",
+  "still here? didn't expect less 😏",
+  "you're actually spending time on this… noted 😌",
+  "getting into it huh 💖 I knew you would",
+  "I already knew you'd stick around 😌",
+  "not leaving yet? good call 😏",
+  "okay ${GIRL_NAME}… this is going exactly how I planned 👀",
+  "I may have built this specifically for this moment 😏",
+  "yeah… I thought you'd like this part 💕",
 ];
 
 // ─── Idle Detection Messages ───────────────────────────────────────────────────
 export const IDLE_MESSAGES = [
-  "Thinking about me? 😏",
-  "Lost in thoughts… or me? 💖",
-  "Daydreaming about us? 😌",
-  "I know you're still there… 💕",
+  "take your time… I'll wait 😏",
+  "I see you thinking 👀 good sign",
+  "still there? I expected that 😌",
+  "overthinking it? the answer's obvious 😄",
 ];
 
 // ─── Jealous Mode Messages ────────────────────────────────────────────────────
 export const JEALOUS_MESSAGES = [
-  "Still trying NO? 😒",
-  "Okay… I'll remember this 😏",
-  "You think you can escape? 💕",
-  "Not happening, ${GIRL_NAME} 😘",
+  "bold move. not gonna work though 😏",
+  "interesting strategy. still not impressed 😌",
+  "really? that button? bold choice 😄",
+  "${GIRL_NAME}… I designed that button to lose 😏",
 ];
 
 // ─── AI Commentary Messages ───────────────────────────────────────────────────
 export const AI_COMMENTARY = {
-  YES_CLICKED: "She said YES… this is going somewhere 😏💖",
-  HIGH_TIME: "She stayed long… she likes you 😌",
-  MULTIPLE_SESSIONS: "She's back again… addicted already? 😏",
-  ALL_GAMES: "Completed everything… she's serious 💕",
-  DEFAULT: "Keep going… she's enjoying this 😊",
+  YES_CLICKED:       "she said yes… I expected nothing less 😏",
+  HIGH_TIME:         "she stayed this long… that says something 😌",
+  MULTIPLE_SESSIONS: "came back again… as expected 😏",
+  ALL_GAMES:         "went through everything… okay she's invested 😌",
+  DEFAULT:           "she's exploring… I built this well 👀",
 };
 
 // ─── Exit Intent Message ──────────────────────────────────────────────────────
-export const EXIT_MESSAGE = "Leaving already? 😔";
+export const EXIT_MESSAGE = "leaving already? I thought you'd stay longer 😏";
 
 // ─── WhatsApp CTA ─────────────────────────────────────────────────────────────
-export const WHATSAPP_NUMBER = "YOUR_NUMBER_HERE"; // Replace with actual number
-export const WHATSAPP_MESSAGE = "I played your game 😳❤️";
+export const WHATSAPP_NUMBER = "7814239292"; // Replace with actual number
+export const WHATSAPP_MESSAGE = "Not gonna lie… this was really sweet 😏💖 now I’m curious about you";

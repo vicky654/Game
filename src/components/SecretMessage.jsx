@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
 const MESSAGES = [
-  { text: 'I love you Cutieee Harshu 😘', emoji: '💖' },
-  { text: "You're my favorite person in the whole world 🌍", emoji: '🌸' },
-  { text: 'Every day with you is a blessing 🙏', emoji: '✨' },
-  { text: "You make my heart skip a beat 💓", emoji: '💕' },
+  { text: 'I spent a while writing this one 😌', emoji: '💖' },
+  { text: 'this one took me some thought 😏', emoji: '🌸' },
+  { text: 'I already knew you\'d open this 😄', emoji: '✨' },
+  { text: 'honestly? worth every minute I put into it 💗', emoji: '💕' },
 ]
 
 export default function SecretMessage() {
@@ -51,9 +51,9 @@ export default function SecretMessage() {
 
       <div className="glass rounded-3xl p-8 max-w-sm mx-auto text-center shadow-2xl w-full">
         <div className="text-6xl mb-4 animate-floatUp">🤫</div>
-        <h2 className="text-2xl font-black text-pink-700 mb-1">Secret Message</h2>
+        <h2 className="text-2xl font-black text-pink-700 mb-1">secret message 🤫</h2>
         <p className="text-pink-500 text-sm mb-6 font-medium">
-          Press reveal to see my secret 💕
+          took me a while to write this… go ahead 😏
         </p>
 
         {/* Message display */}
@@ -94,7 +94,7 @@ export default function SecretMessage() {
             onClick={reveal}
             className="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-black text-xl py-4 rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all"
           >
-            Reveal 💕
+            reveal it 😏
           </button>
         ) : (
           <div className="flex gap-3">

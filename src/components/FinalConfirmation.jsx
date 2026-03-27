@@ -70,7 +70,7 @@ export default function FinalConfirmation() {
   // Magic timed message
   useEffect(() => {
     const t = setTimeout(() => {
-      addToast("This is the final question… choose wisely 😏", { emoji: '💍' })
+      addToast("last question. I already know your answer 😏", { emoji: '💍' })
     }, 4000)
     return () => clearTimeout(t)
   }, [addToast])
@@ -93,7 +93,7 @@ export default function FinalConfirmation() {
         .replace('${GIRL_NAME}', GIRL_NAME)
       addToast(jealousMsg, { emoji: '😒', duration: 4000 })
     }
-    if (moves === 5) addToast("The No button has given up too 😂", { emoji: '🏃' })
+    if (moves === 5) addToast("even the No button knows better 😄", { emoji: '🏃' })
   }, [noMoves, addToast])
 
   const handleYes = () => {
@@ -143,25 +143,24 @@ export default function FinalConfirmation() {
         <div className="glass glow-pulse rounded-3xl p-8 max-w-sm mx-auto shadow-2xl animate-celebration z-10 relative">
           <HeartRing />
 
-          <div className="text-7xl mb-3 animate-heartbeat relative z-10">🎉</div>
+          <div className="text-7xl mb-3 animate-heartbeat relative z-10">✨</div>
 
           <h2 className="text-3xl font-black text-pink-700 mb-2 relative z-10">
-            YESSS!! 💖
+            not gonna lie… 😏
           </h2>
 
-          <p className="text-2xl font-black text-rose-500 mb-2 relative z-10">
-            You're officially MINE! 😏💍
+          <p className="text-xl font-black text-rose-500 mb-2 relative z-10">
+            you did better than I expected 😌
           </p>
 
           <p className="text-pink-600 font-bold mb-4 leading-relaxed relative z-10">
-            This wasn't just a game…<br />
-            I made this only for you 💖
+            I put effort into this. glad you noticed 💖
           </p>
 
-          {/* Official box */}
-          <div className="bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-4 border-2 border-pink-300 mb-4 relative z-10">
-            <p className="text-rose-600 font-black text-lg">🌟 We are OFFICIAL! 🌟</p>
-            <p className="text-pink-500 text-sm mt-1">Forever and always, {GIRL_NAME} ❤️</p>
+          {/* Fun box */}
+          <div className="bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-4 border-2 border-pink-200 mb-4 relative z-10">
+            <p className="text-rose-600 font-black text-lg">✨ I built this specifically for you ✨</p>
+            <p className="text-pink-500 text-sm mt-1">and you actually played all of it 😌</p>
           </div>
 
           {/* WhatsApp CTA */}
@@ -196,27 +195,27 @@ export default function FinalConfirmation() {
     <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
       <div className="glass rounded-3xl p-8 max-w-sm mx-auto shadow-2xl">
         <div className="text-7xl mb-4 animate-floatUp">💍</div>
-        <h2 className="text-2xl font-black text-pink-700 mb-1">Final Question</h2>
+        <h2 className="text-2xl font-black text-pink-700 mb-1">last one 😏</h2>
         <h1 className="text-2xl font-black text-rose-600 mb-2 leading-tight">
-          You are mine forever, right? 😏
+          be honest — did you enjoy this? 😏
         </h1>
         {noMoves > 0 && (
           <p className="text-pink-400 text-sm mb-3 italic">
             {noMoves < 3
-              ? "Hmm… there's only one answer 😏"
+              ? "we both know the real answer 😏"
               : noMoves < 7
-              ? "The No button knows what's right 😂"
-              : "Okay you're definitely having fun 😅"}
+              ? "the No button is judging you right now 😄"
+              : "I see you… having fun but pretending not to 😏"}
           </p>
         )}
         <button
           onClick={handleYes}
           className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black text-2xl py-5 rounded-2xl shadow-xl hover:shadow-pink-400/50 hover:scale-105 active:scale-95 transition-all mb-2"
         >
-          YES, FOREVER! 💍❤️
+          not gonna lie… it was 😏💖
         </button>
         <p className="text-pink-300 text-xs font-medium">
-          (Only the correct button actually works 😉)
+          I designed it that way 😏
         </p>
       </div>
 

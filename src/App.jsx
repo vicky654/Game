@@ -19,6 +19,8 @@ import SpinWheel from './components/SpinWheel'
 import TapSurprise from './components/TapSurprise'
 import ChooseDate from './components/ChooseDate'
 import FinalConfirmation from './components/FinalConfirmation'
+import InteractiveJourney from './components/journey/InteractiveJourney'
+import PlanSomething from './components/PlanSomething'
 
 const GAME_MAP = {
   1: ValentineButton,
@@ -31,6 +33,7 @@ const GAME_MAP = {
   8: TapSurprise,
   9: ChooseDate,
   10: FinalConfirmation,
+  11: PlanSomething,
 }
 
 const BG_EMOJIS = ['💖', '💕', '✨', '💗', '🌸', '🦋', '💝', '🌺']
@@ -151,9 +154,9 @@ function AppInner() {
         1: 'Valentine Button', 2: 'Love Quiz', 3: 'Memory Game',
         4: 'Catch the Heart', 5: 'Love Meter', 6: 'Secret Message',
         7: 'Spin the Wheel', 8: 'Tap Surprise', 9: 'Choose Date',
-        10: 'Final Confirmation',
+        10: 'Final Confirmation', 11: 'Plan Something', journey: 'Interactive Journey',
       }
-      trackEvent('GAME_OPENED', { game: gameNames[screen], gameId: screen })
+      trackEvent('GAME_OPENED', { game: gameNames[screen] ?? screen, gameId: screen })
     }
 
     return () => {
@@ -176,7 +179,7 @@ function AppInner() {
 
   if (loading) return <LoadingScreen />
 
-  const GameComponent = screen !== 'home' && screen !== 'dashboard'
+  const GameComponent = screen !== 'home' && screen !== 'dashboard' && screen !== 'journey'
     ? GAME_MAP[screen]
     : null
 
@@ -216,7 +219,7 @@ function AppInner() {
             ← Home
           </button>
           <span className="text-pink-700 font-black text-sm tracking-wide">
-            {screen === 'dashboard' ? '📊 Love Stats' : '💘 Love Games'}
+            {screen === 'dashboard' ? '📊 Love Stats' : screen === 'journey' ? '✨ Journey' : screen === 11 ? '💖 Plan Something' : '💘 Love Games'}
           </span>
           <MusicToggle musicOn={musicOn} setMusicOn={setMusicOn} />
         </div>
@@ -233,6 +236,7 @@ function AppInner() {
       <div className={`relative z-10 ${screen !== 'home' ? 'pt-14' : ''}`}>
         {screen === 'home' && <HomeScreen onNavigate={setScreen} />}
         {screen === 'dashboard' && <Dashboard />}
+        {screen === 'journey' && <InteractiveJourney />}
         {GameComponent && <GameComponent onNavigate={setScreen} />}
       </div>
     </div>

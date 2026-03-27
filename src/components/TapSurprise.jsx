@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 
 const MESSAGES = [
-  { text: "You are my favorite person ❤️", emoji: '🥰', bg: 'from-pink-400 to-rose-400' },
-  { text: "I'm SO lucky to have you 😘", emoji: '🍀', bg: 'from-rose-400 to-pink-500' },
-  { text: "You make everything better just by existing 🌟", emoji: '✨', bg: 'from-fuchsia-400 to-pink-400' },
-  { text: "My heart does something funny when I see you 💓", emoji: '💓', bg: 'from-pink-500 to-rose-500' },
-  { text: "You're the best thing that ever happened to me 🌸", emoji: '🌸', bg: 'from-rose-300 to-pink-400' },
-  { text: "Missing you is my full-time job 🥺", emoji: '🥺', bg: 'from-pink-400 to-fuchsia-400' },
-  { text: "I choose you, every single day 💍", emoji: '💍', bg: 'from-rose-500 to-pink-500' },
-  { text: "You have no idea how much I adore you 💖", emoji: '💖', bg: 'from-pink-300 to-rose-400' },
-  { text: "Life is infinitely better with you in it 🌈", emoji: '🌈', bg: 'from-fuchsia-300 to-rose-400' },
-  { text: "You're my person, my world, my everything 🌍", emoji: '🌍', bg: 'from-pink-500 to-fuchsia-500' },
-  { text: "Cutieeee Harshu, you complete me 💝", emoji: '💝', bg: 'from-rose-400 to-fuchsia-400' },
-  { text: "I'd pick you in every single lifetime 🌌", emoji: '🌌', bg: 'from-pink-400 to-rose-500' },
+  { text: "I knew you'd keep tapping 😏",                          emoji: '😌', bg: 'from-pink-400 to-rose-400' },
+  { text: "not gonna lie… I put effort into this 😄",              emoji: '😄', bg: 'from-rose-400 to-pink-500' },
+  { text: "your timing? actually kinda impressive 😌✨",            emoji: '✨', bg: 'from-fuchsia-400 to-pink-400' },
+  { text: "I already had a feeling you'd be like this 💗",         emoji: '💗', bg: 'from-pink-500 to-rose-500' },
+  { text: "better than I expected. slightly 😏",                   emoji: '🌸', bg: 'from-rose-300 to-pink-400' },
+  { text: "I built this whole thing and you're actually playing it 🎮", emoji: '🎮', bg: 'from-pink-400 to-fuchsia-400' },
+  { text: "tap again. I dare you 😌",                              emoji: '💕', bg: 'from-rose-500 to-pink-500' },
+  { text: "okay you're more fun than I thought 💖",                emoji: '💖', bg: 'from-pink-300 to-rose-400' },
+  { text: "I didn't expect you to get this far 😄✨",               emoji: '🌈', bg: 'from-fuchsia-300 to-rose-400' },
+  { text: "your energy here? I approve 😌",                        emoji: '⚡', bg: 'from-pink-500 to-fuchsia-500' },
+  { text: "yeah… I knew you'd go for it 😏",                       emoji: '💝', bg: 'from-rose-400 to-fuchsia-400' },
+  { text: "I spent time on this. glad you're here 🌸",             emoji: '🌸', bg: 'from-pink-400 to-rose-500' },
 ]
 
 export default function TapSurprise() {
@@ -34,9 +34,9 @@ export default function TapSurprise() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
       <div className="w-full max-w-sm mx-auto text-center">
-        <h2 className="text-2xl font-black text-white drop-shadow mb-1">🎁 Tap Surprise</h2>
+        <h2 className="text-2xl font-black text-white drop-shadow mb-1">🎁 tap surprise</h2>
         <p className="text-pink-100 text-sm mb-6 font-medium">
-          Each tap = a love note for you 💕
+          each tap = something I thought of just for you 😌
         </p>
 
         {/* Message display */}
@@ -54,7 +54,7 @@ export default function TapSurprise() {
           <div className="glass rounded-3xl p-7 mb-6 shadow-2xl">
             <div className="text-6xl mb-3 animate-floatUp">🎁</div>
             <p className="text-pink-200 font-bold text-lg">
-              Tap the button to get a surprise love message 💕
+              I put something here just for you 😏
             </p>
           </div>
         )}
@@ -75,12 +75,12 @@ export default function TapSurprise() {
           onClick={tap}
           className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black text-2xl py-5 rounded-2xl shadow-lg hover:shadow-pink-400/50 hover:scale-105 active:scale-90 transition-all duration-150"
         >
-          {taps === 0 ? 'Tap me 😏' : taps < 5 ? 'Again! 💕' : taps < 10 ? 'More! 😍' : 'Still more! 🥰'}
+          {taps === 0 ? 'tap and see 😏' : taps < 5 ? 'again 💕' : taps < 10 ? 'yeah keep going 😌' : "I knew you couldn't stop 😏"}
         </button>
 
         {taps >= 5 && (
           <p className="text-pink-200 text-sm mt-3 animate-fadeIn font-medium">
-            {taps >= 10 ? "You love these, don't you? 😂💕" : "You can't stop, can you? 😏"}
+            {taps >= 10 ? "I saw that coming 😏" : "you're more into this than I expected 😌"}
           </p>
         )}
       </div>

@@ -43,14 +43,14 @@ export function useToast() {
 }
 
 // ─── Magic message presets ────────────────────────────────────────────────────
-// Call these from game components for the "playful AI illusion" effect.
+// Playful, slightly flirty — never needy or intense.
 export const MAGIC = {
-  sawSmile:     { message: `I saw that smile ${GIRL_NAME} 😏`, emoji: '👀' },
-  thinkingOfMe: { message: "You took a moment… thinking about me? 💖", emoji: '🤔' },
-  triedNo:      { message: `You tried to press NO… not allowed ${GIRL_NAME} 😆`, emoji: '🚫' },
-  cantResist:   { message: "You can't resist playing! 😏", emoji: '🎮' },
-  alertSent:    { message: "Alert sent to him 😏💌", emoji: '📩', type: 'alert' },
-  loveConfirmed:{ message: `LOVE OFFICIALLY CONFIRMED ${GIRL_NAME} 💍🎉`, emoji: '💘', duration: 6000 },
-  niceMemory:   { message: "Great memory! Just like you never forget me 💕", emoji: '🧠' },
-  quizGenius:   { message: `Quiz genius ${GIRL_NAME}! (The answer's always me tho 😏)`, emoji: '🏆' },
+  sawSmile:     { message: `yeah… I expected that from you 😏`,              emoji: '😌' },
+  thinkingOfMe: { message: "I see you thinking 👀 take your time",           emoji: '🤔' },
+  triedNo:      { message: "bold move. I designed that button to lose 😄",   emoji: '🚫' },
+  cantResist:   { message: "still playing… I knew you would 😏",             emoji: '🎮' },
+  alertSent:    { message: "logged it 😏💌",                                  emoji: '📩', type: 'alert' },
+  loveConfirmed:{ message: `${GIRL_NAME} 😏 I knew you'd say that 💖`,       emoji: '💘', duration: 6000 },
+  niceMemory:   { message: "okay that memory is actually impressive 😌",     emoji: '🧠' },
+  quizGenius:   { message: `quiz done 😌 I designed every question for you`, emoji: '🏆' },
 }

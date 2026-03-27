@@ -91,10 +91,10 @@ export default function MemoryGame() {
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="glass rounded-3xl p-8 max-w-sm mx-auto text-center shadow-2xl animate-bounceIn">
           <div className="text-6xl mb-4 animate-heartbeat">💑</div>
-          <h2 className="text-2xl font-black text-pink-700 mb-2">You did it! 🎉</h2>
-          <p className="text-rose-500 font-bold text-lg mb-1">"You matched all pairs…</p>
-          <p className="text-rose-500 font-bold text-lg mb-4">just like we match perfectly 💑"</p>
-          <p className="text-pink-500 text-sm mb-5">{moves} moves — perfect memory! 🧠💕</p>
+          <h2 className="text-2xl font-black text-pink-700 mb-2">okay I'm impressed 😏</h2>
+          <p className="text-rose-500 font-bold text-lg mb-1">you matched all of them…</p>
+          <p className="text-rose-500 font-bold text-lg mb-4">I honestly didn't expect that 😌</p>
+          <p className="text-pink-500 text-sm mb-5">{moves} moves — that's actually impressive 🧠</p>
           <button
             onClick={reset}
             className="bg-gradient-to-r from-pink-500 to-rose-500 text-white font-black py-3 px-6 rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-lg"

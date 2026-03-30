@@ -109,7 +109,7 @@ export default function MemoryGame() {
   return (
     <div className="min-h-screen px-3 py-4">
       <div className="text-center mb-4">
-        <h2 className="text-xl font-black text-white drop-shadow">💝 Memory Match</h2>
+        <h2 className="text-xl font-black text-[#111827]">💝 Memory Match</h2>
         <div className="flex justify-center gap-6 mt-2">
           <span className="glass px-3 py-1 rounded-full text-pink-700 font-bold text-sm">Moves: {moves}</span>
           <span className="glass px-3 py-1 rounded-full text-pink-700 font-bold text-sm">
@@ -125,7 +125,7 @@ export default function MemoryGame() {
             onClick={() => flipCard(card)}
             className={`aspect-square rounded-xl text-2xl sm:text-3xl flex items-center justify-center shadow-md transition-all duration-300 font-bold
               ${card.flipped || card.matched
-                ? 'bg-white/90 scale-100'
+                ? 'bg-white scale-100'
                 : 'bg-gradient-to-br from-pink-400 to-rose-400 hover:from-pink-300 hover:to-rose-300 hover:scale-105'
               }
               ${card.matched ? 'ring-2 ring-green-400 matched-card' : ''}
@@ -140,7 +140,7 @@ export default function MemoryGame() {
       <div className="text-center mt-4">
         <button
           onClick={reset}
-          className="glass text-pink-700 font-bold text-sm px-4 py-2 rounded-full hover:bg-white/50 active:scale-95 transition-all"
+          className="glass text-gray-600 font-semibold text-sm px-4 py-2 rounded-full hover:bg-gray-50 active:scale-95 transition-all"
         >
           🔄 Restart
         </button>

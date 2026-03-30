@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { GIRL_NAME } from '../../config/global'
 
 // ─── Per-path result configs ───────────────────────────────────────────────────
 const RESULTS = {
@@ -189,7 +188,7 @@ export default function JourneyFinal({ result, onRestart }) {
               : "you've got the right energy for this 😄"}
           </p>
           <p className="text-pink-200 text-sm mt-1 font-medium">
-            {GIRL_NAME} 😏 more interesting than I expected
+            more interesting than I expected 😏
           </p>
         </div>
 

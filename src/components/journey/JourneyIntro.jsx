@@ -51,13 +51,13 @@ export default function JourneyIntro({ onSelect }) {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="text-6xl mb-4 animate-heartbeat inline-block">💘</div>
-          <h1 className="text-2xl font-black text-white drop-shadow-lg leading-snug">
+          <h1 className="text-2xl font-black text-[#111827] leading-snug">
             Okay… what kind of mood
           </h1>
-          <h2 className="text-2xl font-black text-pink-100 drop-shadow-md mt-0.5">
+          <h2 className="text-2xl font-black text-gray-500 mt-0.5">
             are you in today? 😏
           </h2>
-          <p className="text-pink-200 mt-2 text-sm font-medium tracking-wide">
+          <p className="text-gray-400 mt-2 text-sm tracking-wide">
             choose wisely 👀 I'm watching
           </p>
         </div>
@@ -70,10 +70,10 @@ export default function JourneyIntro({ onSelect }) {
               onClick={() => handleSelect(mood.id)}
               className={`glass rounded-2xl p-4 text-left transition-all duration-300 shadow-lg hover:shadow-xl active:scale-98 ${mood.glow} ${
                 selected === mood.id
-                  ? 'ring-4 ring-white/70 scale-102 bg-white/40'
+                  ? 'ring-2 ring-pink-400 scale-102 bg-pink-50'
                   : selected
                   ? 'opacity-40 cursor-default'
-                  : 'hover:bg-white/40 hover:scale-102'
+                  : 'hover:bg-gray-50 hover:scale-102'
               }`}
               style={{ animationDelay: `${i * 0.07}s` }}
               disabled={!!selected}
@@ -87,10 +87,10 @@ export default function JourneyIntro({ onSelect }) {
                   {mood.emoji}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-white font-black text-base leading-tight">{mood.label}</div>
-                  <div className="text-pink-100 text-sm font-medium mt-0.5">{mood.desc}</div>
+                  <div className="text-[#111827] font-bold text-base leading-tight">{mood.label}</div>
+                  <div className="text-gray-500 text-sm mt-0.5">{mood.desc}</div>
                 </div>
-                <div className={`text-white/50 text-lg transition-all duration-200 ${selected === mood.id ? 'text-white opacity-100' : ''}`}>
+                <div className={`text-gray-300 text-lg transition-all duration-200 ${selected === mood.id ? 'text-white opacity-100' : ''}`}>
                   →
                 </div>
               </div>
@@ -98,7 +98,7 @@ export default function JourneyIntro({ onSelect }) {
           ))}
         </div>
 
-        <p className="text-center text-pink-200/60 text-xs mt-6 font-medium">
+        <p className="text-center text-gray-400 text-xs mt-6">
           no wrong answers. probably 😏
         </p>
       </div>

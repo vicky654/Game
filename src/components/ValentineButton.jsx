@@ -80,7 +80,7 @@ export default function ValentineButton() {
         <div className="glass glow-pulse rounded-3xl p-8 max-w-sm mx-auto shadow-2xl animate-bounceIn text-center">
           <div className="text-7xl mb-4 animate-heartbeat">🥰</div>
           <h2 className="text-3xl font-black text-pink-700 mb-2">yeah… I knew it 😏</h2>
-          <p className="text-2xl font-black text-rose-500 mb-3">{GIRL_NAME} 😌</p>
+          <p className="text-2xl font-black text-rose-500 mb-3">I knew it 😌</p>
           <p className="text-pink-600 font-medium">I'd have been shocked if you didn't 😄</p>
           <div className="mt-4 text-3xl animate-wiggle inline-block">💝</div>
         </div>
@@ -99,7 +99,7 @@ export default function ValentineButton() {
         <h2 className="text-2xl font-black text-pink-700 mb-1">Will you be my</h2>
         <h1 className="text-4xl font-black text-rose-600 mb-2">Valentine? 💕</h1>
         {noMoves > 0 && (
-          <p className="text-pink-400 text-sm mb-3 italic">
+          <p className="text-gray-500 text-sm mb-3 italic">
             {noMoves < 3 ? 'interesting strategy 😏' : noMoves < 6 ? 'we both know how this ends 😌' : "I respect the persistence. it won't work 😏"}
           </p>
         )}
@@ -109,7 +109,7 @@ export default function ValentineButton() {
         >
           Yes!! 💚✨
         </button>
-        <p className="text-pink-300 text-xs mt-3 font-medium">
+        <p className="text-gray-400 text-xs mt-3">
           careful… your choices are being noted 😌
         </p>
       </div>

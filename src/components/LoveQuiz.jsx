@@ -82,12 +82,12 @@ export default function LoveQuiz() {
       <div className="w-full max-w-sm">
         {/* Progress */}
         <div className="flex justify-between items-center mb-4 px-1">
-          <span className="text-white/80 text-sm font-medium">Question {step + 1} of {QUESTIONS.length}</span>
+          <span className="text-gray-600 text-sm font-medium">Question {step + 1} of {QUESTIONS.length}</span>
           <span className="text-white/80 text-sm">{'💕'.repeat(step + 1)}</span>
         </div>
-        <div className="w-full bg-white/20 rounded-full h-2 mb-6 overflow-hidden">
+        <div className="w-full bg-gray-200 rounded-full h-2 mb-6 overflow-hidden">
           <div
-            className="h-full bg-white rounded-full transition-all duration-500"
+            className="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full transition-all duration-500"
             style={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }}
           />
         </div>
@@ -106,7 +106,7 @@ export default function LoveQuiz() {
                 className={`w-full py-3 px-4 rounded-xl font-bold text-sm text-left transition-all duration-200 active:scale-95 ${
                   picked === i
                     ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg scale-105'
-                    : 'bg-white/50 text-pink-700 hover:bg-white/80'
+                    : 'bg-gray-50 border border-gray-200 text-gray-800 hover:bg-gray-100'
                 }`}
               >
                 {opt}

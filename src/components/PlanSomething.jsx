@@ -142,14 +142,14 @@ function ProgressBar({ step, total }) {
   return (
     <div className="mb-5">
       <div className="flex justify-between items-center mb-2">
-        <span className="text-white/70 text-xs font-bold tracking-wide uppercase">
+        <span className="text-gray-500 text-xs font-semibold tracking-wide uppercase">
           {STEP_LABELS[step]}
         </span>
-        <span className="text-white/70 text-xs font-bold">
+        <span className="text-gray-500 text-xs font-semibold">
           {step + 1} / {total}
         </span>
       </div>
-      <div className="w-full bg-white/20 rounded-full h-2 overflow-hidden">
+      <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-pink-300 to-rose-400 rounded-full transition-all duration-500"
           style={{ width: `${((step + 1) / total) * 100}%` }}
@@ -169,7 +169,7 @@ function IntroScreen({ onStart }) {
           <h2 className="text-2xl font-black text-pink-700 mb-1">Let's Plan Something</h2>
           <h3 className="text-xl font-black text-rose-500 mb-4">😏</h3>
 
-          <div className="bg-gradient-to-r from-pink-50/60 to-rose-50/60 rounded-2xl p-4 mb-6 border border-pink-200/40 text-left space-y-2">
+          <div className="bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-4 mb-6 border border-pink-200 text-left space-y-2">
             <p className="text-rose-600 font-bold text-sm">
               "Okay… let's see how we'd plan something 😏"
             </p>
@@ -203,7 +203,7 @@ function QuestionScreen({ step, currentStep, picked, showResponse, isLast, onPic
         <div key={step} className="glass rounded-3xl p-6 shadow-2xl animate-bounceIn">
           {/* Badge */}
           <div className="text-center mb-3">
-            <span className="text-xs font-bold text-pink-400 bg-pink-100/30 px-3 py-1 rounded-full uppercase tracking-wide">
+            <span className="text-xs font-bold text-pink-600 bg-pink-100 px-3 py-1 rounded-full uppercase tracking-wide">
               {currentStep.badge}
             </span>
           </div>
@@ -225,8 +225,8 @@ function QuestionScreen({ step, currentStep, picked, showResponse, isLast, onPic
                   picked === i
                     ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg scale-102'
                     : picked !== null
-                    ? 'bg-white/20 text-pink-300 cursor-default'
-                    : 'bg-white/50 text-pink-700 hover:bg-white/80 hover:scale-102 cursor-pointer'
+                    ? 'bg-gray-100 text-gray-400 cursor-default'
+                    : 'bg-gray-50 border border-gray-200 text-gray-800 hover:bg-gray-100 hover:scale-102 cursor-pointer'
                 }`}
               >
                 {opt.label}
@@ -236,7 +236,7 @@ function QuestionScreen({ step, currentStep, picked, showResponse, isLast, onPic
 
           {/* Response bubble */}
           {showResponse && (
-            <div className="animate-bounceIn bg-gradient-to-r from-pink-100/60 to-rose-100/60 rounded-2xl p-3.5 text-center mb-4 border border-pink-200/40">
+            <div className="animate-bounceIn bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-3.5 text-center mb-4 border border-pink-200">
               <p className="text-rose-600 font-bold text-sm">
                 😏 &ldquo;{currentStep.opts[picked].response}&rdquo;
               </p>
@@ -300,7 +300,7 @@ function ResultScreen({ picks, onRestart }) {
         {/* Header */}
         <div className="text-center mb-5">
           <div className="text-5xl mb-3 animate-heartbeat inline-block">📋</div>
-          <h2 className="text-2xl font-black text-white drop-shadow-lg">Okay… so here's the plan 😏</h2>
+          <h2 className="text-2xl font-black text-[#111827]">Okay… so here's the plan 😏</h2>
         </div>
 
         {/* Summary card */}
@@ -309,14 +309,14 @@ function ResultScreen({ picks, onRestart }) {
             {summaryRows.map((row, i) => (
               <div
                 key={i}
-                className="flex items-center gap-3 py-2.5 px-3 rounded-2xl bg-white/20"
+                className="flex items-center gap-3 py-2.5 px-3 rounded-2xl bg-gray-50 border border-gray-100"
               >
                 <span className="text-xl flex-shrink-0">{row.icon}</span>
                 <div className="flex-1 min-w-0">
-                  <p className="text-pink-300 text-xs font-bold uppercase tracking-wide leading-none mb-0.5">
+                  <p className="text-gray-400 text-xs font-bold uppercase tracking-wide leading-none mb-0.5">
                     {row.label}
                   </p>
-                  <p className="text-white font-bold text-sm leading-tight truncate">
+                  <p className="text-[#111827] font-semibold text-sm leading-tight truncate">
                     {row.pick?.summary ?? '—'}
                     {' '}
                     <span>{row.pick?.summaryEmoji}</span>
@@ -327,7 +327,7 @@ function ResultScreen({ picks, onRestart }) {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-pink-100/30 pt-4">
+          <div className="border-t border-gray-200 pt-4">
             <p className="text-rose-600 font-black text-base text-center leading-snug">
               &ldquo;{finalLine}&rdquo;
             </p>
@@ -345,7 +345,7 @@ function ResultScreen({ picks, onRestart }) {
           Plan it differently 🔄
         </button>
 
-        <p className="text-center text-pink-200/70 text-xs mt-4 font-medium">
+        <p className="text-center text-gray-400 text-xs mt-4">
           each plan is different 😏 try all combinations
         </p>
       </div>

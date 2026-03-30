@@ -43,7 +43,7 @@ export const PRESENCE_MESSAGES = [
   "getting into it huh 💖 I knew you would",
   "I already knew you'd stick around 😌",
   "not leaving yet? good call 😏",
-  "okay ${GIRL_NAME}… this is going exactly how I planned 👀",
+  "okay… this is going exactly how I planned 👀",
   "I may have built this specifically for this moment 😏",
   "yeah… I thought you'd like this part 💕",
 ];
@@ -61,16 +61,16 @@ export const JEALOUS_MESSAGES = [
   "bold move. not gonna work though 😏",
   "interesting strategy. still not impressed 😌",
   "really? that button? bold choice 😄",
-  "${GIRL_NAME}… I designed that button to lose 😏",
+  "I designed that button to lose 😏",
 ];
 
 // ─── AI Commentary Messages ───────────────────────────────────────────────────
 export const AI_COMMENTARY = {
-  YES_CLICKED:       "she said yes… I expected nothing less 😏",
-  HIGH_TIME:         "she stayed this long… that says something 😌",
+  YES_CLICKED:       "said yes… I expected nothing less 😏",
+  HIGH_TIME:         "stayed this long… that says something 😌",
   MULTIPLE_SESSIONS: "came back again… as expected 😏",
-  ALL_GAMES:         "went through everything… okay she's invested 😌",
-  DEFAULT:           "she's exploring… I built this well 👀",
+  ALL_GAMES:         "went through everything… okay, invested 😌",
+  DEFAULT:           "exploring… I built this well 👀",
 };
 
 // ─── Exit Intent Message ──────────────────────────────────────────────────────

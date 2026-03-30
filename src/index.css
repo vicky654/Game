@@ -9,17 +9,18 @@
 
 body {
   margin: 0;
-  font-family: 'Poppins', 'Nunito', system-ui, -apple-system, sans-serif;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overscroll-behavior: none;
+  color: #111827;
 }
 
-/* Glassmorphism utility */
+/* Card utility — solid white, clean border, elevation shadow */
 .glass {
-  background: rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
 }
 
 /* ── Glow effects ──────────────────────────────────────────────────────────── */
@@ -159,3 +160,6 @@ body {
 .matched-card {
   animation: matchBounce 0.4s ease-in-out;
 }
+ /* p{
+  color: #770d0d;
+ } */

@@ -125,7 +125,7 @@ export default function CatchTheHeart() {
       </div>
 
       {/* Timer bar */}
-      <div className="mx-4 bg-white/20 rounded-full h-2 overflow-hidden mb-2">
+      <div className="mx-4 bg-gray-200 rounded-full h-2 overflow-hidden mb-2">
         <div
           className="h-full bg-gradient-to-r from-pink-400 to-rose-400 rounded-full transition-all duration-1000"
           style={{ width: `${timerPct}%` }}
@@ -150,7 +150,7 @@ export default function CatchTheHeart() {
 
       {/* Center instruction */}
       <div className="absolute bottom-10 left-0 right-0 text-center pointer-events-none">
-        <p className="text-white/60 text-sm font-medium animate-pulse">
+        <p className="text-gray-400 text-sm font-medium animate-pulse">
           faster 😏 they're getting away
         </p>
       </div>

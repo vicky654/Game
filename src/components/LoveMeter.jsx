@@ -63,7 +63,7 @@ export default function LoveMeter() {
             </div>
 
             {/* Bar */}
-            <div className="w-full bg-white/30 rounded-full h-6 overflow-hidden mb-3 shadow-inner">
+            <div className="w-full bg-gray-200 rounded-full h-6 overflow-hidden mb-3">
               <div
                 className={`h-full bg-gradient-to-r ${getColor()} rounded-full transition-all duration-75 flex items-center justify-end pr-2`}
                 style={{ width: `${pct}%` }}

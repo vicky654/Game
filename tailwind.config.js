@@ -3,6 +3,10 @@ export default {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
+        cute: ['Nunito', 'system-ui', 'sans-serif'],
+      },
       keyframes: {
         floatUp: {
           '0%, 100%': { transform: 'translateY(0px) scale(1)' },

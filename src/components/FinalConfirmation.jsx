@@ -214,7 +214,7 @@ export default function FinalConfirmation() {
         >
           not gonna lie… it was 😏💖
         </button>
-        <p className="text-pink-300 text-xs font-medium">
+        <p className="text-gray-400 text-xs">
           I designed it that way 😏
         </p>
       </div>

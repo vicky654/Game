@@ -34,8 +34,8 @@ export default function TapSurprise() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
       <div className="w-full max-w-sm mx-auto text-center">
-        <h2 className="text-2xl font-black text-white drop-shadow mb-1">🎁 tap surprise</h2>
-        <p className="text-pink-100 text-sm mb-6 font-medium">
+        <h2 className="text-2xl font-black text-[#111827] mb-1">🎁 tap surprise</h2>
+        <p className="text-gray-500 text-sm mb-6">
           each tap = something I thought of just for you 😌
         </p>
 
@@ -46,14 +46,14 @@ export default function TapSurprise() {
             className={`glass rounded-3xl p-7 mb-6 shadow-2xl animate-bounceIn`}
           >
             <div className="text-5xl mb-3 animate-heartbeat">{current.emoji}</div>
-            <p className="text-white font-black text-lg leading-relaxed drop-shadow">
+            <p className="text-gray-800 font-bold text-lg leading-relaxed">
               {current.text}
             </p>
           </div>
         ) : (
           <div className="glass rounded-3xl p-7 mb-6 shadow-2xl">
             <div className="text-6xl mb-3 animate-floatUp">🎁</div>
-            <p className="text-pink-200 font-bold text-lg">
+            <p className="text-gray-600 font-semibold text-lg">
               I put something here just for you 😏
             </p>
           </div>
@@ -63,7 +63,7 @@ export default function TapSurprise() {
         {taps > 0 && (
           <div className="flex justify-center gap-4 mb-5">
             <div className="glass px-4 py-2 rounded-full">
-              <span className="text-white font-bold text-sm">
+              <span className="text-gray-700 font-semibold text-sm">
                 💕 {taps} {taps === 1 ? 'message' : 'messages'}
               </span>
             </div>
@@ -79,7 +79,7 @@ export default function TapSurprise() {
         </button>
 
         {taps >= 5 && (
-          <p className="text-pink-200 text-sm mt-3 animate-fadeIn font-medium">
+          <p className="text-gray-500 text-sm mt-3 animate-fadeIn">
             {taps >= 10 ? "I saw that coming 😏" : "you're more into this than I expected 😌"}
           </p>
         )}

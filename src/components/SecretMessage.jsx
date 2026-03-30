@@ -61,7 +61,7 @@ export default function SecretMessage() {
           className={`rounded-2xl p-6 mb-6 border-2 min-h-24 flex items-center justify-center transition-all duration-700 ${
             revealed
               ? 'bg-gradient-to-br from-pink-50 to-rose-50 border-pink-200'
-              : 'bg-white/20 border-white/30'
+              : 'bg-gray-100 border-gray-300'
           }`}
         >
           <div
@@ -84,7 +84,7 @@ export default function SecretMessage() {
           {MESSAGES.map((_, i) => (
             <div
               key={i}
-              className={`w-2 h-2 rounded-full transition-all ${i === msgIdx ? 'bg-pink-500 scale-125' : 'bg-pink-200'}`}
+              className={`w-2 h-2 rounded-full transition-all ${i === msgIdx ? 'bg-pink-500 scale-125' : 'bg-gray-300'}`}
             />
           ))}
         </div>
@@ -100,7 +100,7 @@ export default function SecretMessage() {
           <div className="flex gap-3">
             <button
               onClick={() => { setRevealed(false); setHearts([]) }}
-              className="flex-1 glass text-pink-700 font-bold py-3 rounded-2xl hover:bg-white/50 active:scale-95 transition-all"
+              className="flex-1 glass text-gray-700 font-semibold py-3 rounded-2xl hover:bg-gray-50 active:scale-95 transition-all"
             >
               Hide 🙈
             </button>

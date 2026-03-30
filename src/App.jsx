@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef, useContext } from 'react'
+import { useState, useEffect, useRef, useContext } from 'react'
 import { ToastProvider, ToastContext } from './context/ToastContext'
+import { ModeProvider, useMode } from './context/ModeContext'
 import { trackEvent, sendAlert, guardOnce } from './utils/api'
-import { GIRL_NAME, PRESENCE_MESSAGES, IDLE_MESSAGES, EMAIL_TEMPLATES, EXIT_MESSAGE } from './config/global'
+import { PRESENCE_MESSAGES, IDLE_MESSAGES, EMAIL_TEMPLATES, EXIT_MESSAGE } from './config/global'
 
 import LoadingScreen from './components/LoadingScreen'
+import ModeSelect from './components/ModeSelect'
 import HomeScreen from './components/HomeScreen'
 import MusicToggle from './components/MusicToggle'
 import NotificationToast from './components/NotificationToast'
@@ -21,6 +23,9 @@ import ChooseDate from './components/ChooseDate'
 import FinalConfirmation from './components/FinalConfirmation'
 import InteractiveJourney from './components/journey/InteractiveJourney'
 import PlanSomething from './components/PlanSomething'
+import FeedbackChat from './components/FeedbackChat'
+import SecretLogin from './components/SecretLogin'
+import SecretInbox from './components/SecretInbox'
 
 const GAME_MAP = {
   1: ValentineButton,
@@ -34,41 +39,39 @@ const GAME_MAP = {
   9: ChooseDate,
   10: FinalConfirmation,
   11: PlanSomething,
+  12: FeedbackChat,
 }
 
-const BG_EMOJIS = ['💖', '💕', '✨', '💗', '🌸', '🦋', '💝', '🌺']
+// ─── Secret admin route ───────────────────────────────────────────────────────
+function SecretRoute() {
+  const [unlocked, setUnlocked] = useState(false)
+  if (!unlocked) return <SecretLogin onUnlock={() => setUnlocked(true)} />
+  return <SecretInbox />
+}
 
-// ─── Floating Hearts Component ────────────────────────────────────────────────
-function FloatingHearts() {
-  const hearts = Array.from({ length: 8 }, (_, i) => ({
-    id: i,
-    emoji: ['💖', '💕', '❤️', '💗', '💓'][i % 5],
-    x: Math.random() * 100,
-    delay: Math.random() * 3,
-    duration: 4 + Math.random() * 4,
-  }))
-
+// ─── Floating BG Emojis ───────────────────────────────────────────────────────
+function FloatingBg({ emojis }) {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {hearts.map(heart => (
-        <div
-          key={heart.id}
-          className="absolute text-2xl opacity-20 animate-floatUp"
+      {emojis.map((emoji, i) => (
+        <span
+          key={i}
+          className="absolute text-xl opacity-[0.06] animate-floatUp select-none"
           style={{
-            left: `${heart.x}%`,
-            top: '100%',
-            animationDuration: `${heart.duration}s`,
-            animationDelay: `${heart.delay}s`,
+            left: `${8 + i * 12}%`,
+            top: `${5 + ((i * 17) % 80)}%`,
+            animationDuration: `${3.5 + i * 0.4}s`,
+            animationDelay: `${i * 0.3}s`,
           }}
         >
-          {heart.emoji}
-        </div>
+          {emoji}
+        </span>
       ))}
     </div>
   )
 }
 
-// ─── Inner App (has access to toast context) ──────────────────────────────────
+// ─── Inner App (has access to toast + mode contexts) ─────────────────────────
 function AppInner() {
   const [loading, setLoading] = useState(true)
   const [screen, setScreen] = useState('home')
@@ -78,8 +81,9 @@ function AppInner() {
   const idleTimerRef = useRef(null)
   const presenceTimerRef = useRef(null)
   const { addToast } = useContext(ToastContext)
+  const { mode, setMode, modeData } = useMode()
 
-  // ── Boot: fire first-open email + session start track ──────────────────────
+  // ── Boot ───────────────────────────────────────────────────────────────────
   useEffect(() => {
     const t = setTimeout(() => {
       setLoading(false)
@@ -93,53 +97,47 @@ function AppInner() {
     return () => clearTimeout(t)
   }, [])
 
-  // ── Live Presence Illusion System ───────────────────────────────────────────
+  // ── Presence messages (reduced: every 50-80 seconds) ───────────────────────
   useEffect(() => {
-    if (loading) return
+    if (loading || !mode) return
 
-    const showPresenceMessage = () => {
+    const showPresence = () => {
       const message = PRESENCE_MESSAGES[Math.floor(Math.random() * PRESENCE_MESSAGES.length)]
-        .replace('${GIRL_NAME}', GIRL_NAME)
       addToast(message, { emoji: '💖', duration: 3000 })
     }
 
-    presenceTimerRef.current = setInterval(showPresenceMessage, 10000 + Math.random() * 10000) // 10-20 seconds
-
+    presenceTimerRef.current = setInterval(showPresence, 50000 + Math.random() * 30000)
     return () => clearInterval(presenceTimerRef.current)
-  }, [loading, addToast])
+  }, [loading, mode, addToast])
 
-  // ── Idle Detection ─────────────────────────────────────────────────────────
+  // ── Idle Detection (30 seconds) ────────────────────────────────────────────
   useEffect(() => {
-    if (loading) return
+    if (loading || !mode) return
 
     const resetIdleTimer = () => {
       clearTimeout(idleTimerRef.current)
       idleTimerRef.current = setTimeout(() => {
         const message = IDLE_MESSAGES[Math.floor(Math.random() * IDLE_MESSAGES.length)]
         addToast(message, { emoji: '😏', duration: 4000 })
-      }, 10000) // 10 seconds
+      }, 30000)
     }
 
     const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart']
-    events.forEach(event => document.addEventListener(event, resetIdleTimer))
-
-    resetIdleTimer() // Start the timer
+    events.forEach(e => document.addEventListener(e, resetIdleTimer))
+    resetIdleTimer()
 
     return () => {
       clearTimeout(idleTimerRef.current)
-      events.forEach(event => document.removeEventListener(event, resetIdleTimer))
+      events.forEach(e => document.removeEventListener(e, resetIdleTimer))
     }
-  }, [loading, addToast])
+  }, [loading, mode, addToast])
 
   // ── Exit Intent ────────────────────────────────────────────────────────────
   useEffect(() => {
     if (loading) return
-
-    const handleBeforeUnload = (e) => {
+    const handleBeforeUnload = () => {
       addToast(EXIT_MESSAGE, { emoji: '😔', duration: 2000 })
-      // Note: This might not show due to browser limitations, but we try
     }
-
     window.addEventListener('beforeunload', handleBeforeUnload)
     return () => window.removeEventListener('beforeunload', handleBeforeUnload)
   }, [loading, addToast])
@@ -161,13 +159,11 @@ function AppInner() {
 
     return () => {
       const seconds = Math.round((Date.now() - screenStartRef.current) / 1000)
-      if (seconds >= 3) {
-        trackEvent('SCREEN_TIME', { screen, seconds })
-      }
+      if (seconds >= 3) trackEvent('SCREEN_TIME', { screen, seconds })
     }
   }, [screen, loading])
 
-  // ── Track total session time on page unload ────────────────────────────────
+  // ── Track session time ─────────────────────────────────────────────────────
   useEffect(() => {
     const handleUnload = () => {
       const seconds = Math.round((Date.now() - sessionStartRef.current) / 1000)
@@ -179,53 +175,49 @@ function AppInner() {
 
   if (loading) return <LoadingScreen />
 
+  // Show mode selection if no mode chosen
+  if (!mode) {
+    return <ModeSelect onSelect={setMode} />
+  }
+
+  const bgEmojis = modeData?.bgEmojis ?? ['✨', '💫', '⭐', '🌟', '💎', '🌙', '🦋', '❄️']
+
   const GameComponent = screen !== 'home' && screen !== 'dashboard' && screen !== 'journey'
     ? GAME_MAP[screen]
     : null
 
+  const navLabels = {
+    dashboard: '📊 Stats',
+    journey: '✨ Journey',
+    11: '💖 Plan Something',
+    12: '💌 Say Something',
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-300 via-rose-200 to-fuchsia-300 relative overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#F8F9FB] to-[#EEF1F6] relative overflow-x-hidden">
       {/* Toast overlay */}
       <NotificationToast />
 
-      {/* Floating hearts animation */}
-      <FloatingHearts />
-
       {/* Ambient floating background */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        {BG_EMOJIS.map((emoji, i) => (
-          <span
-            key={i}
-            className="absolute text-xl opacity-15 animate-floatUp select-none"
-            style={{
-              left: `${8 + i * 12}%`,
-              top: `${5 + ((i * 17) % 80)}%`,
-              animationDuration: `${3.5 + i * 0.4}s`,
-              animationDelay: `${i * 0.3}s`,
-            }}
-          >
-            {emoji}
-          </span>
-        ))}
-      </div>
+      <FloatingBg emojis={bgEmojis} />
 
-      {/* Top nav bar (shown on all non-home screens) */}
+      {/* Top nav bar */}
       {screen !== 'home' && (
-        <div className="fixed top-0 left-0 right-0 z-50 glass flex items-center justify-between px-4 py-2.5 shadow-sm">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 flex items-center justify-between px-4 py-2.5 shadow-sm">
           <button
             onClick={() => setScreen('home')}
-            className="flex items-center gap-1 text-pink-700 font-bold text-sm bg-white/60 hover:bg-white/90 active:scale-95 px-3 py-1.5 rounded-full transition-all"
+            className="flex items-center gap-1 text-sm font-semibold bg-gray-100 hover:bg-gray-200 active:scale-95 px-3 py-1.5 rounded-full transition-all text-gray-700"
           >
             ← Home
           </button>
-          <span className="text-pink-700 font-black text-sm tracking-wide">
-            {screen === 'dashboard' ? '📊 Love Stats' : screen === 'journey' ? '✨ Journey' : screen === 11 ? '💖 Plan Something' : '💘 Love Games'}
+          <span className="text-[#111827] font-black text-sm tracking-wide">
+            {navLabels[screen] ?? '🎮 Games'}
           </span>
           <MusicToggle musicOn={musicOn} setMusicOn={setMusicOn} />
         </div>
       )}
 
-      {/* Music toggle on home screen */}
+      {/* Music toggle on home */}
       {screen === 'home' && (
         <div className="fixed top-4 right-4 z-50">
           <MusicToggle musicOn={musicOn} setMusicOn={setMusicOn} />
@@ -234,7 +226,12 @@ function AppInner() {
 
       {/* Main content */}
       <div className={`relative z-10 ${screen !== 'home' ? 'pt-14' : ''}`}>
-        {screen === 'home' && <HomeScreen onNavigate={setScreen} />}
+        {screen === 'home' && (
+          <HomeScreen
+            onNavigate={setScreen}
+            onChangeMode={() => setMode(null)}
+          />
+        )}
         {screen === 'dashboard' && <Dashboard />}
         {screen === 'journey' && <InteractiveJourney />}
         {GameComponent && <GameComponent onNavigate={setScreen} />}
@@ -243,11 +240,14 @@ function AppInner() {
   )
 }
 
-// ─── Root: wraps everything in the Toast context ──────────────────────────────
+// ─── Root ─────────────────────────────────────────────────────────────────────
 export default function App() {
+  if (window.location.pathname === '/secret') return <SecretRoute />
   return (
-    <ToastProvider>
-      <AppInner />
-    </ToastProvider>
+    <ModeProvider>
+      <ToastProvider>
+        <AppInner />
+      </ToastProvider>
+    </ModeProvider>
   )
 }

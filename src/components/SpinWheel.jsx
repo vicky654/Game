@@ -47,8 +47,8 @@ export default function SpinWheel() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-6">
       <div className="w-full max-w-sm mx-auto text-center">
-        <h2 className="text-2xl font-black text-white drop-shadow mb-1">🎡 spin the wheel</h2>
-        <p className="text-pink-100 text-sm mb-6 font-medium">I already know what you're hoping for 😏</p>
+        <h2 className="text-2xl font-black text-[#111827] mb-1">🎡 spin the wheel</h2>
+        <p className="text-gray-500 text-sm mb-6">I already know what you're hoping for 😏</p>
 
         {/* Wheel container */}
         <div className="relative flex items-center justify-center mb-6">
@@ -112,7 +112,7 @@ export default function SpinWheel() {
           disabled={spinning}
           className={`w-full py-4 rounded-2xl font-black text-xl shadow-lg transition-all ${
             spinning
-              ? 'bg-pink-200 text-pink-400 cursor-not-allowed'
+              ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
               : 'bg-gradient-to-r from-pink-500 to-rose-500 text-white hover:scale-105 active:scale-95 hover:shadow-pink-400/50'
           }`}
         >

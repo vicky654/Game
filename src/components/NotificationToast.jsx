@@ -21,12 +21,12 @@ function Toast({ toast, onDismiss }) {
   return (
     <div
       className={`
-        flex items-start gap-3 px-4 py-3 rounded-2xl shadow-2xl text-sm font-bold
+        flex items-start gap-3 px-4 py-3 rounded-2xl shadow-lg text-sm font-semibold
         max-w-xs w-full cursor-pointer select-none active:scale-95
-        border backdrop-blur-md
+        border
         ${isAlert
-          ? 'bg-gradient-to-r from-rose-500 to-pink-600 text-white border-rose-300/40 shadow-rose-400/30'
-          : 'bg-white/85 text-pink-700 border-pink-200/60 shadow-pink-200/30'
+          ? 'bg-gradient-to-r from-rose-500 to-pink-600 text-white border-rose-400 shadow-rose-400/30'
+          : 'bg-white text-pink-700 border-gray-200 shadow-gray-200/50'
         }
       `}
       onClick={handleDismiss}

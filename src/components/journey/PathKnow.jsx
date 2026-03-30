@@ -81,7 +81,7 @@ function AnalyzingScreen() {
             key={i}
             className={`transition-all duration-500 ${
               i <= line ? 'opacity-100' : 'opacity-0'
-            } ${i === 0 ? 'text-white font-black text-xl' : 'text-pink-100 font-medium'}`}
+            } ${i === 0 ? 'text-[#111827] font-black text-xl' : 'text-gray-600 font-medium'}`}
           >
             {l}
           </p>
@@ -91,7 +91,7 @@ function AnalyzingScreen() {
         {[0, 1, 2, 3].map(i => (
           <div
             key={i}
-            className="w-3 h-3 bg-white/60 rounded-full animate-pulse"
+            className="w-3 h-3 bg-pink-300 rounded-full animate-pulse"
             style={{ animationDelay: `${i * 0.18}s` }}
           />
         ))}
@@ -107,9 +107,9 @@ function ProgressDots({ current, total }) {
         <div
           key={i}
           className={`rounded-full transition-all duration-400 ${
-            i < current ? 'w-7 h-2 bg-white/80' :
-            i === current ? 'w-9 h-2 bg-white' :
-            'w-2 h-2 bg-white/25'
+            i < current ? 'w-7 h-2 bg-pink-300' :
+            i === current ? 'w-9 h-2 bg-pink-500' :
+            'w-2 h-2 bg-gray-200'
           }`}
         />
       ))}
@@ -182,7 +182,7 @@ export default function PathKnow({ onComplete }) {
         <ProgressDots current={questionIndex} total={questionSteps.length} />
 
         {current.selfNote && (
-          <p className="text-center text-pink-100 text-sm italic mb-4">{current.selfNote}</p>
+          <p className="text-center text-gray-500 text-sm italic mb-4">{current.selfNote}</p>
         )}
 
         <div className="glass rounded-3xl p-6 shadow-2xl">
@@ -190,7 +190,7 @@ export default function PathKnow({ onComplete }) {
           {isSelfcheck && (
             <div className="text-center mb-4">
               <p className="text-pink-500 font-black text-base">{current.header}</p>
-              <p className="text-pink-400 text-sm font-medium">{current.headerSub}</p>
+              <p className="text-gray-500 text-sm">{current.headerSub}</p>
             </div>
           )}
 
@@ -209,8 +209,8 @@ export default function PathKnow({ onComplete }) {
                   picked === i
                     ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg scale-102'
                     : picked !== null
-                    ? 'bg-white/25 text-pink-300 cursor-default'
-                    : 'bg-white/50 text-pink-700 hover:bg-white/80 hover:scale-102 cursor-pointer'
+                    ? 'bg-gray-100 text-gray-400 cursor-default'
+                    : 'bg-gray-50 border border-gray-200 text-gray-800 hover:bg-gray-100 hover:scale-102 cursor-pointer'
                 }`}
               >
                 {opt.label}
@@ -220,7 +220,7 @@ export default function PathKnow({ onComplete }) {
 
           {/* Note / Response */}
           {showNote && (
-            <div className="animate-bounceIn bg-gradient-to-r from-blue-100/50 to-cyan-100/50 rounded-2xl p-3 text-center mb-4 border border-blue-200/30">
+            <div className="animate-bounceIn bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-3 text-center mb-4 border border-blue-200">
               <p className="text-blue-700 font-bold text-sm">
                 😏 &ldquo;{noteText}&rdquo;
               </p>

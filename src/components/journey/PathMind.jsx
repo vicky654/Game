@@ -37,14 +37,14 @@ function AnalyzingScreen() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
       <div className="text-6xl mb-5 animate-heartbeat">🧠</div>
-      <p className="text-white font-black text-2xl mb-2">processing your answers…</p>
-      <p className="text-pink-100 font-medium text-base mb-1">"okay I see the pattern 👀"</p>
-      <p className="text-pink-200 text-sm">"not what I expected tbh 😏"</p>
+      <p className="text-[#111827] font-black text-2xl mb-2">processing your answers…</p>
+      <p className="text-gray-600 font-medium text-base mb-1">"okay I see the pattern 👀"</p>
+      <p className="text-gray-500 text-sm">"not what I expected tbh 😏"</p>
       <div className="mt-8 flex gap-3 justify-center">
         {[0, 1, 2, 3].map(i => (
           <div
             key={i}
-            className="w-3 h-3 bg-white/60 rounded-full animate-pulse"
+            className="w-3 h-3 bg-pink-300 rounded-full animate-pulse"
             style={{ animationDelay: `${i * 0.18}s` }}
           />
         ))}
@@ -90,14 +90,14 @@ export default function PathMind({ onComplete }) {
         {/* Progress bar */}
         <div className="mb-6">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-white/80 text-sm font-bold">
+            <span className="text-gray-600 text-sm font-semibold">
               Question {step + 1} of {QUESTIONS.length}
             </span>
             <span className="glass px-3 py-1 rounded-full text-pink-700 font-black text-sm">
               🧠 {score}
             </span>
           </div>
-          <div className="w-full bg-white/20 rounded-full h-2.5 overflow-hidden">
+          <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full transition-all duration-500"
               style={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }}
@@ -109,7 +109,7 @@ export default function PathMind({ onComplete }) {
         <div className="glass rounded-3xl p-6 shadow-2xl">
           {/* Badge */}
           <div className="text-center mb-3">
-            <span className="text-xs font-bold text-purple-500 bg-purple-100/40 px-3 py-1 rounded-full">
+            <span className="text-xs font-bold text-purple-500 bg-purple-100 px-3 py-1 rounded-full">
               let's see how sharp you are 👀
             </span>
           </div>
@@ -129,8 +129,8 @@ export default function PathMind({ onComplete }) {
                   picked === i
                     ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg scale-102'
                     : picked !== null
-                    ? 'bg-white/25 text-pink-300 cursor-default'
-                    : 'bg-white/50 text-pink-700 hover:bg-white/80 hover:scale-102 cursor-pointer'
+                    ? 'bg-gray-100 text-gray-400 cursor-default'
+                    : 'bg-gray-50 border border-gray-200 text-gray-800 hover:bg-gray-100 hover:scale-102 cursor-pointer'
                 }`}
               >
                 {opt}
@@ -140,7 +140,7 @@ export default function PathMind({ onComplete }) {
 
           {/* Reaction */}
           {showReaction && (
-            <div className="animate-bounceIn bg-gradient-to-r from-purple-100/50 to-indigo-100/50 rounded-2xl p-3 text-center mb-4 border border-purple-200/30">
+            <div className="animate-bounceIn bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-3 text-center mb-4 border border-purple-200">
               <p className="text-indigo-700 font-bold text-sm">💡 {q.reaction}</p>
             </div>
           )}

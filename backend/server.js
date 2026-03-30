@@ -7,6 +7,7 @@ const nodemailer = require('nodemailer')
 const rateLimit  = require('express-rate-limit')
 const compression = require('compression')
 const Event      = require('./models/Event')
+const Feedback   = require('./models/Feedback')
 
 const app  = express()
 const PORT = process.env.PORT || 5000
@@ -28,7 +29,7 @@ app.use(compression())
 //    (avoids repeated OPTIONS round-trips on cellular networks)
 app.use(cors({
   origin: '*',
-  methods: ['GET', 'POST', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   maxAge: 86400,
 }))
@@ -329,6 +330,65 @@ app.get('/api/health', (req, res) => {
     uptime: Math.floor(process.uptime()),
     time: new Date().toISOString(),
   })
+})
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// FEEDBACK / SECRET INBOX ROUTES
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ── POST /api/feedback — save a user message ──────────────────────────────────
+app.post('/api/feedback', async (req, res) => {
+  try {
+    const { message } = req.body
+    if (!message || typeof message !== 'string' || !message.trim()) {
+      return res.status(400).json({ error: 'message is required' })
+    }
+    if (message.trim().length > 1000) {
+      return res.status(400).json({ error: 'message too long (max 1000 chars)' })
+    }
+    const doc = new Feedback({ message: message.trim() })
+    await doc.save()
+    console.log(`💌 Feedback received (${doc._id})`)
+    res.json({ success: true, id: doc._id })
+  } catch (err) {
+    console.error('⚠️  feedback POST error:', err.message)
+    res.status(500).json({ error: 'Failed to save message' })
+  }
+})
+
+// ── GET /api/feedback — list all messages (admin) ─────────────────────────────
+app.get('/api/feedback', async (req, res) => {
+  try {
+    const messages = await Feedback.find()
+      .sort({ createdAt: 1 })
+      .lean()
+    res.json(messages)
+  } catch (err) {
+    console.error('⚠️  feedback GET error:', err.message)
+    res.status(500).json({ error: 'Failed to load messages' })
+  }
+})
+
+// ── PATCH /api/feedback/:id/read — mark message as read ──────────────────────
+app.patch('/api/feedback/:id/read', async (req, res) => {
+  try {
+    await Feedback.findByIdAndUpdate(req.params.id, { read: true })
+    res.json({ success: true })
+  } catch (err) {
+    console.error('⚠️  feedback PATCH error:', err.message)
+    res.status(500).json({ error: 'Failed to update message' })
+  }
+})
+
+// ── DELETE /api/feedback/:id — delete a message ───────────────────────────────
+app.delete('/api/feedback/:id', async (req, res) => {
+  try {
+    await Feedback.findByIdAndDelete(req.params.id)
+    res.json({ success: true })
+  } catch (err) {
+    console.error('⚠️  feedback DELETE error:', err.message)
+    res.status(500).json({ error: 'Failed to delete message' })
+  }
 })
 
 // ── 404 catch-all for unknown /api routes ─────────────────────────────────────

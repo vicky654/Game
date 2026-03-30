@@ -80,7 +80,7 @@ function AnalyzingScreen() {
             key={i}
             className={`font-medium transition-all duration-500 ${
               i <= line
-                ? i === 0 ? 'text-white font-black text-xl opacity-100' : 'text-pink-100 opacity-100'
+                ? i === 0 ? 'text-[#111827] font-black text-xl opacity-100' : 'text-gray-600 opacity-100'
                 : 'opacity-0'
             }`}
           >
@@ -92,7 +92,7 @@ function AnalyzingScreen() {
         {[0, 1, 2, 3].map(i => (
           <div
             key={i}
-            className="w-3 h-3 bg-white/60 rounded-full animate-pulse"
+            className="w-3 h-3 bg-pink-300 rounded-full animate-pulse"
             style={{ animationDelay: `${i * 0.18}s` }}
           />
         ))}
@@ -109,9 +109,9 @@ function ProgressDots({ current, total }) {
         <div
           key={i}
           className={`rounded-full transition-all duration-400 ${
-            i < current ? 'w-7 h-2 bg-white/80' :
-            i === current ? 'w-9 h-2 bg-white shadow-glow' :
-            'w-2 h-2 bg-white/25'
+            i < current ? 'w-7 h-2 bg-pink-300' :
+            i === current ? 'w-9 h-2 bg-pink-500' :
+            'w-2 h-2 bg-gray-200'
           }`}
         />
       ))}
@@ -160,7 +160,7 @@ export default function PathFlirty({ onComplete }) {
           <div className="glass rounded-3xl p-8 shadow-2xl animate-bounceIn">
             <div className="text-6xl mb-4 animate-heartbeat">{current.emoji}</div>
             <h2 className="text-2xl font-black text-pink-700 mb-4">{current.title}</h2>
-            <div className="bg-gradient-to-r from-pink-50/60 to-rose-50/60 rounded-2xl p-4 mb-6 border border-pink-200/40">
+            <div className="bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-4 mb-6 border border-pink-200">
               {current.body.split('\n').map((line, i) => (
                 <p key={i} className={`text-rose-600 font-bold ${i === 0 ? 'text-base mb-1' : 'text-sm'}`}>
                   {line}
@@ -188,7 +188,7 @@ export default function PathFlirty({ onComplete }) {
         <ProgressDots current={questionIndex} total={questionSteps.length} />
 
         {current.progress && (
-          <p className="text-center text-pink-100 text-sm font-medium mb-4 italic">
+          <p className="text-center text-gray-500 text-sm mb-4 italic">
             {current.progress}
           </p>
         )}
@@ -196,7 +196,7 @@ export default function PathFlirty({ onComplete }) {
         <div className="glass rounded-3xl p-6 shadow-2xl">
           {isFinalPick && (
             <div className="text-center mb-3">
-              <span className="text-xs font-bold text-pink-400 bg-pink-100/30 px-3 py-1 rounded-full">
+              <span className="text-xs font-bold text-pink-600 bg-pink-100 px-3 py-1 rounded-full">
                 The real question 😏
               </span>
             </div>
@@ -217,8 +217,8 @@ export default function PathFlirty({ onComplete }) {
                   picked === i
                     ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg scale-102'
                     : picked !== null
-                    ? 'bg-white/25 text-pink-300 cursor-default'
-                    : 'bg-white/50 text-pink-700 hover:bg-white/80 hover:scale-102 cursor-pointer'
+                    ? 'bg-gray-100 text-gray-400 cursor-default'
+                    : 'bg-gray-50 border border-gray-200 text-gray-800 hover:bg-gray-100 hover:scale-102 cursor-pointer'
                 }`}
               >
                 <span>{opt.label}</span>
@@ -231,7 +231,7 @@ export default function PathFlirty({ onComplete }) {
 
           {/* Response bubble */}
           {showResponse && (
-            <div className="animate-bounceIn bg-gradient-to-r from-pink-100/60 to-rose-100/60 rounded-2xl p-3 text-center mb-4 border border-pink-200/40">
+            <div className="animate-bounceIn bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-3 text-center mb-4 border border-pink-200">
               <p className="text-rose-600 font-bold text-sm">
                 😏 &ldquo;{current.opts[picked].response}&rdquo;
               </p>

@@ -50,7 +50,7 @@ export default function ChooseDate() {
           </div>
           <button
             onClick={() => { setSelected(null); setConfirmed(false) }}
-            className="glass text-pink-700 font-bold px-6 py-2.5 rounded-2xl hover:bg-white/50 active:scale-95 transition-all"
+            className="glass text-pink-700 font-bold px-6 py-2.5 rounded-2xl hover:bg-gray-50 active:scale-95 transition-all"
           >
             want to try again? 😏 (you'll pick the same one)
           </button>
@@ -64,8 +64,8 @@ export default function ChooseDate() {
       <div className="w-full max-w-sm mx-auto">
         <div className="text-center mb-6">
           <div className="text-6xl mb-3 animate-floatUp">📅</div>
-          <h2 className="text-2xl font-black text-white drop-shadow mb-1">I already know what you'll pick 👀</h2>
-          <p className="text-pink-100 text-sm font-medium">go ahead… prove me wrong 😏</p>
+          <h2 className="text-2xl font-black text-[#111827] mb-1">I already know what you'll pick 👀</h2>
+          <p className="text-gray-500 text-sm">go ahead… prove me wrong 😏</p>
         </div>
 
         <div className="flex flex-col gap-4">
@@ -75,8 +75,8 @@ export default function ChooseDate() {
               onClick={() => handleSelect(opt)}
               className={`glass rounded-2xl p-5 text-left transition-all duration-200 hover:scale-102 active:scale-98 shadow-lg ${
                 selected?.label === opt.label
-                  ? 'ring-4 ring-white/80 scale-102 bg-white/40'
-                  : 'hover:bg-white/40'
+                  ? 'ring-2 ring-pink-400 scale-102 bg-pink-50'
+                  : 'hover:bg-gray-50'
               }`}
             >
               <div className="flex items-center gap-4">
@@ -84,8 +84,8 @@ export default function ChooseDate() {
                   {opt.emoji}
                 </div>
                 <div className="flex-1">
-                  <div className="text-white font-black text-lg">{opt.label}</div>
-                  <div className="text-pink-100 text-sm font-medium">{opt.desc}</div>
+                  <div className="text-[#111827] font-bold text-lg">{opt.label}</div>
+                  <div className="text-gray-500 text-sm">{opt.desc}</div>
                 </div>
                 {selected?.label === opt.label && (
                   <div className="text-2xl animate-bounceIn">✅</div>
